@@ -1,0 +1,14 @@
+[package]
+name = "servedirfromram"
+version = "0.0.1"
+edition = "2021"
+authors = ["valkyrie_pilot <valk@randomairborne.dev>"]
+
+[dependencies]
+hyper = { version = "0.14", features = ["tcp", "http1", "server"] }
+tokio = { version = "1.0", features = ["rt-multi-thread", "macros"]}
+
+[profile.release]
+codegen-units = 1
+lto = "fat"
+
